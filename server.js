@@ -23,7 +23,7 @@ app.use('/api/income', require('./routes/income'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/serviceapp')
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://Sserviceapp:Serviceapp123@cluster0.i3b44mp.mongodb.net/serviceapp?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('MongoDB ansluten'))
   .catch(err => console.error('MongoDB fel:', err));
 
