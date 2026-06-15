@@ -21,9 +21,16 @@ app.use('/api/reminders', require('./routes/reminders'));
 app.use('/api/revenue', require('./routes/revenue'));
 app.use('/api/income', require('./routes/income'));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/serviceapp')
   .then(() => console.log('MongoDB ansluten'))
   .catch(err => console.error('MongoDB fel:', err));
 
 const PORT = process.env.PORT || 5000;
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.listen(PORT, () => console.log(`Server körs på port ${PORT}`));
