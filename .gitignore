@@ -1,5 +1,3 @@
-git rm -r --cached node_modules
-  git rm --cached .env
-  git add -A
-  git commit -m "Remove secrets and node_modules from repo"
-  git push
+node_modules/
+  .env
+  uploads/
